@@ -8,10 +8,21 @@ console.log("by Blake Stevenson");
 console.log("=====================");
 
  (async () => {
- 	
-    const redditScraperOptions = {
-        AppId: "PASTE_YOUR_APPID",
-        AppSecret: "PASTE_YOUR_SECRET",
+ var config = {
+     "appID": "YOUR_APP_ID_HERE",
+     "secret": "YOUR_SECRET_HERE",
+     "subreddits": [
+          "memes",
+          "meme",
+          "dankmemes",
+          "memeeconomy",
+	  "comedycemetery",
+	  "funny"
+     ]
+}
+    const options = {
+        AppId: config.appID,
+        AppSecret: config.secret,
     };
  
     const memes = {
@@ -19,7 +30,7 @@ console.log("=====================");
         Records: 25,
         SubReddit: "memes",
         SortType: "hot",
-    };
+    }
     
 	const meme = {
         Pages: 100,
@@ -57,7 +68,7 @@ console.log("=====================");
     };
     
     try {
-    	const redditScraper = new RedditScraper.RedditScraper(redditScraperOptions);
+    	const redditScraper = new RedditScraper.RedditScraper(options);
     	console.log("Configuration Loaded!");
     	var memesData = await redditScraper.scrapeData(memes);
     	console.log("Memes Subreddit Scraped!")
