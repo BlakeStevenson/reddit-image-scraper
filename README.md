@@ -6,7 +6,7 @@ Get memes or images using the Reddit API
 Step 1: Download
 ```git clone https://github.com/blakestevenson/reddit-image-scraper.git```
 
-Step 2: Install Dependencie
+Step 2: Install Dependencies
 ```npm install```
 
 Step 3: Configure
