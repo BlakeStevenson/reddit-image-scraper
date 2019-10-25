@@ -10,11 +10,11 @@ console.log("=====================");
 console.log("");
 
  (async () => {
-    const directory = "/var/www/api/meme/img";
+    const directory = "YOUR DIRECTORY"; //no trailing slash
     
     const redditScraperOptions = {
-        AppId: "vjngiZOerTtZxw",
-        AppSecret: "7XQ2yqcNj0DMDTd87GyZIsE88Ko",
+        AppId: "YOUR_APP_ID",
+        AppSecret: "YOUR_SECRET",
     };
  
     const memes = {
