@@ -24,4 +24,4 @@ const = redditScraperOptions {
 ```node index.js```
 
 ### Note:
-The speed at which this application runs is almost entirely dependent on the speed of your internet connection. If you are running this on a virtual server at a major host, great! It should finish in about a minute. If you are running this locally at home, it may take longer depending on how good your internet is.
+The speed at which this application runs is almost entirely dependent on the speed of your internet connection. If you are running this on a server at a major host, great! It should finish in about a minute. If you are running this locally at home, it may take longer depending on how good your internet is.
