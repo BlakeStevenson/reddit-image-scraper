@@ -2,7 +2,6 @@ const RedditScraper = require("reddit-scraper");
 const exec = require('child_process').exec;
 const url = require('url');
 const fs = require('fs');
-var ProgressBar = require('ascii-progress');
 
 console.log("=====================");
 console.log("Reddit Meme Scraper");
