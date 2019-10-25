@@ -1,6 +1,14 @@
 {
   "name": "reddit-image-scraper",
   "version": "1.0.0",
+  "author": {
+  "name": "Blake Stevenson",
+  "email": "blakereidstevenson@gmail.com",
+  "URL": "https://blakestevenson.github.io"
+  },
+  "repository": "github:blakestevenson/reddit-image-scraper",
+  "homepage": "https://github.com/blakestevenson/reddit-image-scraper",
+  "license": "UNLICENSE",
   "description": "Reddit Image Scraper",
   "main": "index.js",
   "scripts": {
@@ -8,5 +16,5 @@
   },
   "dependencies": {
     "reddit-scraper": "^1.0.0"
-  },
+  }
 }
