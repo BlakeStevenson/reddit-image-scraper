@@ -10,15 +10,11 @@ Get memes or images using the Reddit API
 ```npm install```
 
 #### Step 3: Configure
-Open `index.js` in your favorite editor and change the otions in the `config` object. You may obtain the App ID and Secret from https://reddit.com/prefs/apps
+Open `index.js` in your favorite editor and change the options in the `redditScraperOptions` object. You may obtain the App ID and Secret from https://reddit.com/prefs/apps. You also need to configure the directories. To do this, edit the `directory` variable to include the full path to the folder where you would like to save your memes (for example, `/home/user/memes`)
 ```
-var config = {
-"appID": "YOUR_APP_ID_HERE",
-"secret": "YOUR_SECRET_HERE",
-"subreddits": [
-"memes",
-"meme",
-"dankmemes",
-"memeeconomy"
-]
+const directory = 
+
+const = redditScraperOptions {
+"AppId": "YOUR_APP_ID_HERE",
+"AppSecret": "YOUR_SECRET_HERE",
 }

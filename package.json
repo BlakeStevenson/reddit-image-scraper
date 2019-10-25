@@ -1,12 +1,12 @@
 {
   "name": "reddit-image-scraper",
-  "version": "0.1",
+  "version": "1.0.0",
   "description": "Reddit Image Scraper",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js"
   },
   "dependencies": {
-    "reddit-scraper": "^1.01"
+    "reddit-scraper": "^1.0.0"
   },
 }
