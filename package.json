@@ -6,7 +6,7 @@
   "email": "blakereidstevenson@gmail.com",
   "URL": "https://blakestevenson.github.io"
   },
-  "repository": "github:blakestevenson/reddit-image-scraper",
+  "repository": "git://github.com/blakestevenson/reddit-image-scraper.git",
   "homepage": "https://github.com/blakestevenson/reddit-image-scraper",
   "license": "UNLICENSE",
   "description": "Reddit Image Scraper",
