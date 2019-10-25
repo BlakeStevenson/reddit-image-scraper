@@ -15,7 +15,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@jamesmarino/reddit-scraper": "^1.0.0"
+    "reddit-scraper": "^1.0.0"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/" 
