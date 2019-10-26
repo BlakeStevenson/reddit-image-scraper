@@ -9,107 +9,107 @@ console.log("by Blake Stevenson");
 console.log("=====================");
 console.log("");
 
- (async () => {
+(async () => {
     const directory = "YOUR DIRECTORY"; //no trailing slash
-    
+
     const redditScraperOptions = {
         AppId: "YOUR_APP_ID",
         AppSecret: "YOUR_SECRET",
     };
- 
+
     const memes = {
         Pages: 100,
         Records: 25,
         SubReddit: "memes",
         SortType: "hot",
     };
-    
-	/* const meme = {
+
+    /* const meme = {
         Pages: 100,
         Records: 25,
         SubReddit: "meme",
         SortType: "hot",
     }; */
-    
+
     const dankMemes = {
         Pages: 100,
         Records: 25,
         SubReddit: "dankmemes",
         SortType: "hot",
     };
-    
+
     const deepFriedMemes = {
         Pages: 100,
         Records: 25,
         SubReddit: "deepfriedmemes",
         SortType: "hot",
-    }; 
-    
+    };
+
     const comedyCemetery = {
         Pages: 100,
         Records: 25,
         SubReddit: "comedycemetery",
         SortType: "hot",
     };
-    
+
     const memeEconomy = {
         Pages: 100,
         Records: 25,
         SubReddit: "memeeconomy",
         SortType: "hot",
     };
-    
-    try {
-    	const redditScraper = new RedditScraper.RedditScraper(redditScraperOptions);
-    	console.log("Configuration Loaded!");
-    	var memesData = await redditScraper.scrapeData(memes);
-    	console.log("Memes Subreddit Scraped!")
-    	//var memeData = await redditScraper.scrapeData(meme);
-    	//console.log("Meme Subreddit Scraped!");
-    	var dankMemesData = await redditScraper.scrapeData(dankMemes);
-    	console.log("DankMemes Subreddit Scraped!");
-    	var deepFriedMemesData = await redditScraper.scrapeData(deepFriedMemes);
-    	console.log("DeepFriedMemes Subreddit Scraped!");
-    	var comedyCemeteryData = await redditScraper.scrapeData(comedyCemetery);
-    	console.log("ComedyCemetery Subreddit Scraped!");
-    	var memeEconomyData = await redditScraper.scrapeData(memeEconomy);
-    	console.log("MemeEconomy Subreddit Scraped!");
 
-	const scrapedData = [].concat.apply([], [memesData, /*memeData,*/ dankMemesData, deepFriedMemesData, comedyCemeteryData, memeEconomyData]);
-	var memeCount = 0;
-	var skipCount = 0;
-	var invalidCount = 0;
-        for(i = 0; i < scrapedData.length; i++) {
-        	var link = scrapedData[i].data.url;
-        	var file_name = url.parse(link).pathname.split('/').pop();   
-			var ext = file_name.split('.').pop();
-			if(ext == "jpg" || ext == "jpg" || ext == "gif") {
-        	try {
- 			if(fs.existsSync(directory + "/" + file_name)) {
-    			//console.log("File already exists! Skipping...");
-    			skipCount++;	
-  } else {
-  	exec('wget -O ' + directory + "/" + file_name + ' ' + link);
-  	// console.log("Saved " + file_name + "! (" + i + ")");
-  	
-	memeCount++; 
- }
-} catch(err) {
-  console.error(err)
-}
-} else {
-	invalidCount++;
-}
-  }
-console.log("");
-console.log("=========");
-console.log(memeCount + " memes successfully downloaded.");
-console.log(skipCount + " memes already downloaded.");
-console.log(invalidCount + " memes skipped because of an invalid format.")
-console.log("---------")
-console.log(scrapedData.length + " total memes fetched.")
+    try {
+        const redditScraper = new RedditScraper.RedditScraper(redditScraperOptions);
+        console.log("Configuration Loaded!");
+        var memesData = await redditScraper.scrapeData(memes);
+        console.log("Memes Subreddit Scraped!")
+        //var memeData = await redditScraper.scrapeData(meme);
+        //console.log("Meme Subreddit Scraped!");
+        var dankMemesData = await redditScraper.scrapeData(dankMemes);
+        console.log("DankMemes Subreddit Scraped!");
+        var deepFriedMemesData = await redditScraper.scrapeData(deepFriedMemes);
+        console.log("DeepFriedMemes Subreddit Scraped!");
+        var comedyCemeteryData = await redditScraper.scrapeData(comedyCemetery);
+        console.log("ComedyCemetery Subreddit Scraped!");
+        var memeEconomyData = await redditScraper.scrapeData(memeEconomy);
+        console.log("MemeEconomy Subreddit Scraped!");
+
+        const scrapedData = [].concat.apply([], [memesData, /*memeData,*/ dankMemesData, deepFriedMemesData, comedyCemeteryData, memeEconomyData]);
+        var memeCount = 0;
+        var skipCount = 0;
+        var invalidCount = 0;
+        for (i = 0; i < scrapedData.length; i++) {
+            var link = scrapedData[i].data.url;
+            var file_name = url.parse(link).pathname.split('/').pop();
+            var ext = file_name.split('.').pop();
+            if (ext == "jpg" || ext == "jpg" || ext == "gif") {
+                try {
+                    if (fs.existsSync(directory + "/" + file_name)) {
+                        //console.log("File already exists! Skipping...");
+                        skipCount++;
+                    } else {
+                        exec('wget -O ' + directory + "/" + file_name + ' ' + link);
+                        // console.log("Saved " + file_name + "! (" + i + ")");
+
+                        memeCount++;
+                    }
+                } catch (err) {
+                    console.error(err)
+                }
+            } else {
+                invalidCount++;
+            }
+        }
+        console.log("");
+        console.log("=========");
+        console.log(memeCount + " memes successfully downloaded.");
+        console.log(skipCount + " memes already downloaded.");
+        console.log(invalidCount + " memes skipped because of an invalid format.")
+        console.log("---------")
+        console.log(scrapedData.length + " total memes fetched.")
     } catch (error) {
         console.error(error);
     }
- 
+
 })();
