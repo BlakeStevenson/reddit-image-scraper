@@ -11,54 +11,31 @@ console.log("");
 
  (async () => {
     const directory = "YOUR_DIRECTORY";
-    
+
     const redditScraperOptions = {
         AppId: "YOUR_APP_ID",
         AppSecret: "APP_SECRET",
     };
- 
-    const memes = {
-        Pages: 100,
-        Records: 25,
-        SubReddit: "memes",
-        SortType: "hot",
-    };
-    
-	/* const meme = {
-        Pages: 100,
-        Records: 25,
-        SubReddit: "meme",
-        SortType: "hot",
-    }; */
-    
-    const dankMemes = {
-        Pages: 100,
-        Records: 25,
-        SubReddit: "dankmemes",
-        SortType: "hot",
-    };
-    
-    const deepFriedMemes = {
-        Pages: 100,
-        Records: 25,
-        SubReddit: "deepfriedmemes",
-        SortType: "hot",
-    }; 
-    
-    const comedyCemetery = {
-        Pages: 100,
-        Records: 25,
-        SubReddit: "comedycemetery",
-        SortType: "hot",
-    };
-    
-    const memeEconomy = {
-        Pages: 100,
-        Records: 25,
-        SubReddit: "memeeconomy",
-        SortType: "hot",
-    };
-    
+
+    class Memeobj
+   {
+    constructor(SubReddit)
+     {
+      this.Pages = 100 ;
+      this.Records = 25;
+      this.SortType = "hot";
+      this.SubReddit = SubReddit;
+
+     }
+   }
+   const memes   =  new Memeobj("memes");
+   const dankMemes = new Memeobj("dankmemes");
+   const deepFriedMemes = new Memeobj("deepfriedmemes");
+   const comedyCemetery = new Memeobj("comedycemetery");
+   const memeEconomy = new Memeobj("memeeconomy");
+/* const meme = new Memeobj("meme"); */
+
+
     try {
     	const redditScraper = new RedditScraper.RedditScraper(redditScraperOptions);
     	console.log("Configuration Loaded!");
@@ -81,18 +58,18 @@ console.log("");
 	var invalidCount = 0;
         for(i = 0; i < scrapedData.length; i++) {
         	var link = scrapedData[i].data.url;
-        	var file_name = url.parse(link).pathname.split('/').pop();   
+        	var file_name = url.parse(link).pathname.split('/').pop();
 			var ext = file_name.split('.').pop();
 			if(ext == "jpg" || ext == "jpg" || ext == "gif") {
         	try {
  			if(fs.existsSync(directory + "/" + file_name)) {
     			//console.log("File already exists! Skipping...");
-    			skipCount++;	
+    			skipCount++;
   } else {
   	exec('wget -O ' + directory + "/" + file_name + ' ' + link);
   	// console.log("Saved " + file_name + "! (" + i + ")");
-  	
-	memeCount++; 
+
+	memeCount++;
  }
 } catch(err) {
   console.error(err);
@@ -115,5 +92,5 @@ fs.readdir(directory, function(err, files) {
     } catch (error) {
         console.error(error);
     }
- 
+
 })();
